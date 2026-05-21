@@ -1,0 +1,218 @@
+{
+  "users": {
+    "2128166700": {
+      "tg_id": 2128166700,
+      "name": "Ardak",
+      "language": "english",
+      "favorites": [
+        {
+          "title": "Auto industry braces for motor oil shortage - CNN",
+          "description": "Wholesale motor oil prices are rising rapidly, and some industry executives are warning of imminent shortages caused by the war with Iran.",
+          "url": "https://www.cnn.com/2026/05/19/business/motor-oil-shortage-prices-iran",
+          "source": "CNN",
+          "category_id": 4
+        }
+      ]
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "General",
+      "api_slug": "general",
+      "translations": {
+        "english": "🌍 General",
+        "russian": "🌍 Общие",
+        "kazakh": "🌍 Жалпы"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Sports",
+      "api_slug": "sports",
+      "translations": {
+        "english": "⚽ Sports",
+        "russian": "⚽ Спорт",
+        "kazakh": "⚽ Спорт"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Technology",
+      "api_slug": "technology",
+      "translations": {
+        "english": "💻 Technology",
+        "russian": "💻 Технологии",
+        "kazakh": "💻 Технологиялар"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Business",
+      "api_slug": "business",
+      "translations": {
+        "english": "💼 Business",
+        "russian": "💼 Бизнес",
+        "kazakh": "💼 Бизнес"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Entertainment",
+      "api_slug": "entertainment",
+      "translations": {
+        "english": "🎬 Entertainment",
+        "russian": "🎬 Развлечения",
+        "kazakh": "🎬 Ойын-сауық"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Health",
+      "api_slug": "health",
+      "translations": {
+        "english": "🏥 Health",
+        "russian": "🏥 Здоровье",
+        "kazakh": "🏥 Денсаулық"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Science",
+      "api_slug": "science",
+      "translations": {
+        "english": "🧪 Science",
+        "russian": "🧪 Наука",
+        "kazakh": "🧪 Ғылым"
+      }
+    }
+  ],
+  "lexicon": {
+    "english": {
+      "hello": "👋 Hello",
+      "intro": "I am a news bot. Choose a category and get fresh news.",
+      "main_menu_label": "🏠 Main Menu",
+      "get_news": "📰 Get News",
+      "categories": "🗂️ Categories",
+      "settings": "⚙️ Settings",
+      "help": "❓ Help",
+      "choose_cat": "🗂️ Choose a category:",
+      "more_news": "🔄 More news",
+      "back_cat": "🔙 Back to Categories",
+      "lang_header": "🌐 Choose language:",
+      "country_header": "📍 Choose country:",
+      "name_prompt": "👤 Enter your new name:",
+      "cancel": "❌ Cancel",
+      "lang_btn": "🌐 Change Language",
+      "country_btn": "📍 Change Country",
+      "name_btn": "👤 Change Name",
+      "help_text": "📖 <b>News Bot Help</b>\n/start - Restart\n/get_news - Quick News\n/settings - Adjust preferences",
+      "name_success": "✅ Name updated!",
+      "back": "🔙 Back",
+      "lang_set": "✅ Language set to English!",
+      "lang": "English",
+      "read_more": "🔗 Read more",
+      "error_gen_not_found": "❌ Error: General category not found.",
+      "no_news_available": "⚠️ No news available at the moment. Please try again later.",
+      "no_title": "⚠️ No title available for this article.",
+      "no_description": "⚠️ No description available for this article.",
+      "favorites": "⭐ Favorites",
+      "save_fav": "⭐ Save to Favorites",
+      "fav_delete": "🗑️ Delete from Favorites",
+      "back_to_fav": "🔙 Back to Favorites",
+      "fav_clear": "❌ Clear Favorites",
+      "not_found": "❌ Not Found.",
+      "no_fav": "⭐ You have no saved articles yet.\n\nRead the news and save the ones you like!",
+      "fav_empty": "⭐ Favorites is empty.",
+      "fav_added": "✅ Added to Favorites!",
+      "fav_cleared": "🗑️ Favorites cleared!",
+      "fav_not_saved": "❌ Could not save — open the article again first.",
+      "fav_already": "⭐ Already in Favorites.",
+      "fav_removed": "🗑️ Removed from Favorites!"
+    },
+    "kazakh": {
+      "hello": "👋 Сәлем",
+      "intro": "Мен жаңалықтар ботымын. Санатты таңдап, соңғы жаңалықтарды алыңыз.",
+      "main_menu_label": "🏠 Бас мәзір",
+      "get_news": "📰 Жаңалықтар",
+      "categories": "🗂️ Санаттар",
+      "settings": "⚙️ Баптаулар",
+      "help": "❓ Көмек",
+      "choose_cat": "🗂️ Санатты таңдаңыз:",
+      "more_news": "🔄 Тағы жаңалықтар",
+      "back_cat": "🔙 Санаттарға қайту",
+      "lang_header": "🌐 Тілді таңдаңыз:",
+      "country_header": "📍 Елді таңдаңыз:",
+      "name_prompt": "👤 Жаңа есіміңізді енгізіңіз:",
+      "cancel": "❌ Бас тарту",
+      "lang_btn": "🌐 Тілді өзгерту",
+      "country_btn": "📍 Елді өзгерту",
+      "name_btn": "👤 Есімді өзгерту",
+      "help_text": "📖 <b>Көмек</b>\n/start - Қайта қосу\n/get_news - Жылдам жаңалықтар\n/settings - Баптаулар",
+      "name_success": "✅ Есім жаңартылды!",
+      "back": "🔙 Артқа",
+      "lang_set": "✅ Тіл Қазақшаға өзгертілді!",
+      "lang": "Қазақша",
+      "read_more": "🔗 Толығырақ оқу",
+      "error_gen_not_found": "❌ Қате: Жалпы категория табылмады.",
+      "no_news_available": "⚠️ Қазіргі уақытта жаңалықтар жоқ. Кейінірек қайтадан көріңіз.",
+      "no_title": "⚠️ Бұл мақала үшін заголовок жоқ.",
+      "no_description": "⚠️ Бұл мақала үшін сипаттама жоқ.",
+      "favorites": "⭐ Таңдаулылар",
+      "save_fav": "⭐ Таңдаулыларға сақтау",
+      "fav_delete": "🗑️ Таңдаулылардан жою",
+      "back_to_fav": "🔙 Таңдаулыларға қайту",
+      "fav_clear": "❌ Таңдаулыларды тазарту",
+      "not_found": "❌ Табылмады.",
+      "no_fav": "⭐ Сізде әлі сақталған мақалалар жоқ.\n\nЖаңалықтарды оқып, ұнағандарын сақтаңыз!",
+      "fav_empty": "⭐ Таңдаулылар бос.",
+      "fav_added": "✅ Таңдаулыларға қосылды!",
+      "fav_cleared": "🗑️ Таңдаулылар тазартылды!",
+      "fav_not_saved": "❌ Сақталмады — мақаланы қайта ашыңыз.",
+      "fav_already": "⭐ Таңдаулылар тізімінде бар.",
+      "fav_removed": "🗑️ Таңдаулылардан жойылды!"
+    },
+    "russian": {
+      "hello": "👋 Привет",
+      "intro": "Я новостной бот. Выберите категорию и получайте свежие новости.",
+      "main_menu_label": "🏠 Главное меню",
+      "get_news": "📰 Новости",
+      "categories": "🗂️ Категории",
+      "settings": "⚙️ Настройки",
+      "help": "❓ Помощь",
+      "choose_cat": "🗂️ Выберите категорию:",
+      "more_news": "🔄 Еще новости",
+      "back_cat": "🔙 К категориям",
+      "lang_header": "🌐 Выберите язык:",
+      "country_header": "📍 Выберите страну:",
+      "name_prompt": "👤 Введите ваше новое имя:",
+      "cancel": "❌ Отмена",
+      "lang_btn": "🌐 Изменить язык",
+      "country_btn": "📍 Изменить страну",
+      "name_btn": "👤 Изменить имя",
+      "help_text": "📖 <b>Помощь</b>\n/start - Перезапуск\n/get_news - Быстрые новости\n/settings - Настройки",
+      "name_success": "✅ Имя обновлено!",
+      "back": "🔙 Назад",
+      "lang_set": "✅ Язык установлен на Русский!",
+      "lang": "Русский",
+      "read_more": "🔗 Читать далее",
+      "error_gen_not_found": "❌ Ошибка: Общая категория не найдена.",
+      "no_news_available": "⚠️ В настоящее время нет новостей. Пожалуйста, попробуйте позже.",
+      "no_title": "⚠️ Заголовок недоступен для этой статьи.",
+      "no_description": "⚠️ Описание недоступно для этой статьи.",
+      "favorites": "⭐ Избранное",
+      "save_fav": "⭐ Сохранить в избранное",
+      "fav_delete": "🗑️ Удалить из избранного",
+      "back_to_fav": "🔙 Назад к избранному",
+      "fav_clear": "❌ Очистить избранное",
+      "not_found": "❌ Не найдено",
+      "no_fav": "⭐ У вас еще нет сохраненных статей.\n\nЧитайте новости и сохраняйте понравившиеся!",
+      "fav_empty": "⭐ Избранное пусто.",
+      "fav_added": "✅ Добавлено в избранное!",
+      "fav_cleared": "🗑️ Избранное очищено!",
+      "fav_not_saved": "❌ Не удалось сохранить — откройте статью снова.",
+      "fav_already": "⭐ Уже в избранном.",
+      "fav_removed": "🗑️ Удалено из избранного!"
+    }
+  }
+}
