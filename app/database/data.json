@@ -1,20 +1,5 @@
 {
-  "users": {
-    "2128166700": {
-      "tg_id": 2128166700,
-      "name": "Ardak",
-      "language": "english",
-      "favorites": [
-        {
-          "title": "Auto industry braces for motor oil shortage - CNN",
-          "description": "Wholesale motor oil prices are rising rapidly, and some industry executives are warning of imminent shortages caused by the war with Iran.",
-          "url": "https://www.cnn.com/2026/05/19/business/motor-oil-shortage-prices-iran",
-          "source": "CNN",
-          "category_id": 4
-        }
-      ]
-    }
-  },
+  "users": {},
   "categories": [
     {
       "id": 1,
