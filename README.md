@@ -1,6 +1,6 @@
 # Multi-language Telegram News Bot
 
-Telegram bot built with Python and aiogram. It fetches headlines from NewsAPI, translates article titles and descriptions, supports English, Russian, and Kazakh, and stores user preferences and saved articles in a JSON file.
+Telegram bot built with Python and aiogram. It fetches headlines from NewsAPI, translates article titles and descriptions, supports English, Russian, and Kazakh, and stores user preferences and saved articles in a local JSON file.
 
 ## Requirements
 
@@ -15,11 +15,11 @@ Telegram bot built with Python and aiogram. It fetches headlines from NewsAPI, t
 3. Copy `.env.example` to `.env` and fill in `BOT_TOKEN` and `NEWS_API_KEY`.
 4. Start the bot: `python run.py`.
 
-The `.env` file is ignored by Git. Do not commit real credentials or user data.
+The `.env` file and `app/database/users.json` are ignored by Git. Do not commit real credentials or user data.
 
 ## Data
 
-The bot stores settings and favorites in `app/database/data.json`. This JSON storage is suitable for a small, single-process learning project; use a database for concurrent or multi-instance deployment.
+Categories and translations live in `app/database/data.json`. User profiles and favorites are written to `app/database/users.json`. This JSON storage is intended for a small, single-process learning project; use a database for concurrent or multi-instance deployment.
 
 ## Commands
 
