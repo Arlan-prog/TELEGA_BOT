@@ -1,4 +1,6 @@
+import html
 import random
+from urllib.parse import urlsplit
 
 from aiogram import F, Router
 from aiogram.filters import CommandStart, Command
@@ -7,7 +9,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 
 from app.news import get_latest_news
-from app.translator import translator
+from app.translator import LANG_CODE_MAP, translator
 import app.keyboards as kb
 import app.database.requests as rq
 
@@ -55,27 +57,30 @@ async def show_categories(callback: CallbackQuery):
 
 
 
-async def format_article(lang: str, article: dict, category: dict) -> str:
+async def format_article(lang: str, article: dict, category: dict | None) -> str:
     translated = await translator.translate_article(article, lang)
+    category = category or {"name": "News", "translations": {}}
     display_name = category.get("translations", {}).get(lang, category["name"])
-
-    title = translated.get('title', await rq.get_text(lang, "no_title"))
-    source = article.get('source', '')
+    title = translated.get("title") or await rq.get_text(lang, "no_title")
+    description = translated.get("description") or ""
+    source = article.get("source", "")
     if isinstance(source, dict):
-        source = source.get('name', '')
-    description = translated.get('description', '')
-    url = translated.get('url', '')
-    
-    
-    text = f"📂 <b>{display_name}</b>\n\n<b>{title}</b>\n"
-           
+        source = source.get("name", "")
+
+    parts = [f"📂 <b>{html.escape(str(display_name))}</b>", ""]
+    parts.append(f"<b>{html.escape(str(title))}</b>")
     if source:
-        text += f"📡 <i>{source}</i>\n\n"
+        parts.append(f"📡 <i>{html.escape(str(source))}</i>")
     if description:
-        text += f"{description}\n\n"
-    if url:
-        text += f"<a href='{url}'>{await rq.get_text(lang, 'read_more')}</a>"
-    return text
+        clean_description = str(description)[:800]
+        parts.append(html.escape(clean_description))
+    url = str(article.get("url") or "")
+    parsed_url = urlsplit(url)
+    if parsed_url.scheme in {"http", "https"} and parsed_url.netloc:
+        safe_url = html.escape(url, quote=True)
+        read_more = html.escape(await rq.get_text(lang, "read_more"))
+        parts.append(f'<a href="{safe_url}">{read_more}</a>')
+    return "\n\n".join(parts)
 
 
 @router.message(Command("get_news"))
@@ -187,7 +192,10 @@ async def select_language(callback: CallbackQuery):
 
 @router.callback_query(F.data.startswith('lang_'))
 async def set_language(callback: CallbackQuery):
-    new_lang = callback.data.split('_')[1]
+    new_lang = callback.data.split('_', 1)[1]
+    if new_lang not in LANG_CODE_MAP:
+        await callback.answer(await rq.get_text(await get_user_lang(callback.from_user.id), "not_found"), show_alert=True)
+        return
     await rq.update_user_language(callback.from_user.id, new_lang)
     await callback.answer(await rq.get_text(new_lang, "lang_set"))
     
@@ -223,7 +231,12 @@ async def start_change_name(callback: CallbackQuery, state: FSMContext):
 
 @router.message(UserState.wait_name)
 async def renamed_user(message: Message, state: FSMContext):
-    await rq.update_user_name(message.from_user.id, message.text)
+    name = (message.text or "").strip()
+    if not name or len(name) > 64:
+        lang = await get_user_lang(message.from_user.id)
+        await message.answer(await rq.get_text(lang, "name_prompt"))
+        return
+    await rq.update_user_name(message.from_user.id, name)
     await state.clear()
     lang = await get_user_lang(message.from_user.id)
     await message.answer(await rq.get_text(lang, "name_success"))
@@ -262,15 +275,16 @@ async def show_favorites(callback: CallbackQuery):
 
 @router.callback_query(F.data.startswith("fav_read_"))
 async def read_favorite(callback: CallbackQuery):
-    await callback.answer()
     lang = await get_user_lang(callback.from_user.id)
     index = int(callback.data.split("_")[2])
     favorites = await rq.get_favorites(callback.from_user.id)
-    if index >= len(favorites):
+    if not 0 <= index < len(favorites):
         await callback.answer(await rq.get_text(lang, "not_found"), show_alert=True)
         return
+    await callback.answer()
     article = favorites[index]
-    text = await format_article(lang, article, await rq.get_category_by_id(article["category_id"]))
+    category = await rq.get_category_by_id(article.get("category_id"))
+    text = await format_article(lang, article, category)
 
     await callback.message.edit_text(text, parse_mode="HTML", reply_markup=await kb.favorite_article_keyboard(lang, index))
 
